@@ -1,5 +1,3 @@
-server_script 'server/main.lua'
-
 client_scripts {
 	'skinchanger.net.dll',
 	'client/main.lua'
