@@ -38,8 +38,9 @@ Character = {
 	glasses_2    = 0
 }
 
-LastSex  = 0;
-LoadSkin = nil;
+LastSex     = 0;
+LoadSkin    = nil;
+LoadClothes = nil;
 
 AddEventHandler('skinchanger:modelLoaded', function()
 
@@ -64,6 +65,28 @@ AddEventHandler('skinchanger:modelLoaded', function()
 
 	end
 
+	if LoadClothes ~= nil then
+
+		local playerPed = GetPlayerPed(-1)
+
+		SetPedHeadBlendData(playerPed, LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], 1.0, 1.0, 1.0, true)
+		
+		SetPedComponentVariation(playerPed, 2, LoadClothes.playerSkin['hair_1'], LoadClothes.playerSkin['hair_2'], 2)	      -- Hair
+		SetPedHairColor(playerPed, LoadClothes.playerSkin['hair_color_1'], LoadClothes.playerSkin['hair_color_2']) 		      -- Hair Color
+		
+		SetPedComponentVariation(playerPed, 8,  LoadClothes.jobSkin['tshirt_1'], LoadClothes.jobSkin['tshirt_2'], 2)  -- Tshirt
+		SetPedComponentVariation(playerPed, 11, LoadClothes.jobSkin['torso_1'], LoadClothes.jobSkin['torso_2'], 2)    -- torso parts
+		SetPedComponentVariation(playerPed, 3, LoadClothes.jobSkin['arms'], 0, 2)                          -- torso
+		SetPedComponentVariation(playerPed, 10, LoadClothes.jobSkin['decals_1'], LoadClothes.jobSkin['decals_2'], 2)  -- decals
+		SetPedComponentVariation(playerPed, 4, LoadClothes.jobSkin['pants_1'], LoadClothes.jobSkin['pants_2'], 2)     -- pants
+		SetPedComponentVariation(playerPed, 6, LoadClothes.jobSkin['shoes'], 0, 2) 									      -- shoes
+		SetPedPropIndex(playerPed, 0, LoadClothes.jobSkin['helmet_1'], LoadClothes.jobSkin['helmet_2'], 2)            -- Helmet
+		SetPedPropIndex(playerPed, 1, LoadClothes.jobSkin['glasses_1'], LoadClothes.jobSkin['glasses_2'], 2)          -- Glasses
+
+		LoadClothes = nil
+
+	end
+
 end)
 
 RegisterNetEvent('skinchanger:loadSkin')
@@ -72,6 +95,22 @@ AddEventHandler('skinchanger:loadSkin', function(skin)
 	LoadSkin = skin
 
 	if skin['sex'] == 0 then
+		TriggerEvent('skinchanger:LoadDefaultModel', true)
+	else
+		TriggerEvent('skinchanger:LoadDefaultModel', false)
+	end
+
+end)
+
+RegisterNetEvent('skinchanger:loadClothes')
+AddEventHandler('skinchanger:loadClothes', function(playerSkin, jobSkin)
+	
+	LoadClothes = {
+		playerSkin = playerSkin,
+		jobSkin    = jobSkin
+	}
+
+	if playerSkin['sex'] == 0 then
 		TriggerEvent('skinchanger:LoadDefaultModel', true)
 	else
 		TriggerEvent('skinchanger:LoadDefaultModel', false)
