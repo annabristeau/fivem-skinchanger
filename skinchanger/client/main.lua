@@ -46,6 +46,8 @@ AddEventHandler('skinchanger:modelLoaded', function()
 
 	if LoadSkin ~= nil then
 
+		Character = LoadSkin
+
 		local playerPed = GetPlayerPed(-1)
 
 		SetPedHeadBlendData(playerPed, LoadSkin['face'], LoadSkin['face'], LoadSkin['face'], LoadSkin['skin'], LoadSkin['skin'], LoadSkin['skin'], 1.0, 1.0, 1.0, true)
@@ -66,6 +68,30 @@ AddEventHandler('skinchanger:modelLoaded', function()
 	end
 
 	if LoadClothes ~= nil then
+
+		Character = {
+			sex          = LoadClothes.playerSkin['sex'],
+			face         = LoadClothes.playerSkin['face'],
+			skin         = LoadClothes.playerSkin['skin'],
+			hair_1       = LoadClothes.playerSkin['hair_1'],
+			hair_2       = LoadClothes.playerSkin['hair_2'],
+			hair_color_1 = LoadClothes.playerSkin['hair_color_1'],
+			hair_color_2 = LoadClothes.playerSkin['hair_color_2'],
+			tshirt_1     = LoadClothes.jobSkin['tshirt_1'],
+			tshirt_2     = LoadClothes.jobSkin['tshirt_2'],
+			torso_1      = LoadClothes.jobSkin['torso_1'],
+			torso_2      = LoadClothes.jobSkin['torso_2'],
+			decals_1     = LoadClothes.jobSkin['arms'],
+			decals_2     = LoadClothes.jobSkin['decals_1'],
+			arms         = LoadClothes.jobSkin['decals_2'],
+			pants_1      = LoadClothes.jobSkin['pants_1'],
+			pants_2      = LoadClothes.jobSkin['pants_2'],
+			shoes        = LoadClothes.jobSkin['shoes'],
+			helmet_1     = LoadClothes.jobSkin['helmet_1'],
+			helmet_2     = LoadClothes.jobSkin['helmet_2'],
+			glasses_1    = LoadClothes.jobSkin['glasses_1'],
+			glasses_2    = LoadClothes.jobSkin['glasses_2']
+		}
 
 		local playerPed = GetPlayerPed(-1)
 
