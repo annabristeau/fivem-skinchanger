@@ -77,20 +77,20 @@ AddEventHandler('skinchanger:modelLoaded', function()
 			hair_2       = LoadClothes.playerSkin['hair_2'],
 			hair_color_1 = LoadClothes.playerSkin['hair_color_1'],
 			hair_color_2 = LoadClothes.playerSkin['hair_color_2'],
-			tshirt_1     = LoadClothes.jobSkin['tshirt_1'],
-			tshirt_2     = LoadClothes.jobSkin['tshirt_2'],
-			torso_1      = LoadClothes.jobSkin['torso_1'],
-			torso_2      = LoadClothes.jobSkin['torso_2'],
-			decals_1     = LoadClothes.jobSkin['arms'],
-			decals_2     = LoadClothes.jobSkin['decals_1'],
-			arms         = LoadClothes.jobSkin['decals_2'],
-			pants_1      = LoadClothes.jobSkin['pants_1'],
-			pants_2      = LoadClothes.jobSkin['pants_2'],
-			shoes        = LoadClothes.jobSkin['shoes'],
-			helmet_1     = LoadClothes.jobSkin['helmet_1'],
-			helmet_2     = LoadClothes.jobSkin['helmet_2'],
-			glasses_1    = LoadClothes.jobSkin['glasses_1'],
-			glasses_2    = LoadClothes.jobSkin['glasses_2']
+			tshirt_1     = LoadClothes.clothesSkin['tshirt_1'],
+			tshirt_2     = LoadClothes.clothesSkin['tshirt_2'],
+			torso_1      = LoadClothes.clothesSkin['torso_1'],
+			torso_2      = LoadClothes.clothesSkin['torso_2'],
+			decals_1     = LoadClothes.clothesSkin['arms'],
+			decals_2     = LoadClothes.clothesSkin['decals_1'],
+			arms         = LoadClothes.clothesSkin['decals_2'],
+			pants_1      = LoadClothes.clothesSkin['pants_1'],
+			pants_2      = LoadClothes.clothesSkin['pants_2'],
+			shoes        = LoadClothes.clothesSkin['shoes'],
+			helmet_1     = LoadClothes.clothesSkin['helmet_1'],
+			helmet_2     = LoadClothes.clothesSkin['helmet_2'],
+			glasses_1    = LoadClothes.clothesSkin['glasses_1'],
+			glasses_2    = LoadClothes.clothesSkin['glasses_2']
 		}
 
 		local playerPed = GetPlayerPed(-1)
@@ -100,14 +100,14 @@ AddEventHandler('skinchanger:modelLoaded', function()
 		SetPedComponentVariation(playerPed, 2, LoadClothes.playerSkin['hair_1'], LoadClothes.playerSkin['hair_2'], 2)	      -- Hair
 		SetPedHairColor(playerPed, LoadClothes.playerSkin['hair_color_1'], LoadClothes.playerSkin['hair_color_2']) 		      -- Hair Color
 		
-		SetPedComponentVariation(playerPed, 8,  LoadClothes.jobSkin['tshirt_1'], LoadClothes.jobSkin['tshirt_2'], 2)  -- Tshirt
-		SetPedComponentVariation(playerPed, 11, LoadClothes.jobSkin['torso_1'], LoadClothes.jobSkin['torso_2'], 2)    -- torso parts
-		SetPedComponentVariation(playerPed, 3, LoadClothes.jobSkin['arms'], 0, 2)                          -- torso
-		SetPedComponentVariation(playerPed, 10, LoadClothes.jobSkin['decals_1'], LoadClothes.jobSkin['decals_2'], 2)  -- decals
-		SetPedComponentVariation(playerPed, 4, LoadClothes.jobSkin['pants_1'], LoadClothes.jobSkin['pants_2'], 2)     -- pants
-		SetPedComponentVariation(playerPed, 6, LoadClothes.jobSkin['shoes'], 0, 2) 									      -- shoes
-		SetPedPropIndex(playerPed, 0, LoadClothes.jobSkin['helmet_1'], LoadClothes.jobSkin['helmet_2'], 2)            -- Helmet
-		SetPedPropIndex(playerPed, 1, LoadClothes.jobSkin['glasses_1'], LoadClothes.jobSkin['glasses_2'], 2)          -- Glasses
+		SetPedComponentVariation(playerPed, 8,  LoadClothes.clothesSkin['tshirt_1'], LoadClothes.clothesSkin['tshirt_2'], 2)  -- Tshirt
+		SetPedComponentVariation(playerPed, 11, LoadClothes.clothesSkin['torso_1'], LoadClothes.clothesSkin['torso_2'], 2)    -- torso parts
+		SetPedComponentVariation(playerPed, 3, LoadClothes.clothesSkin['arms'], 0, 2)                          -- torso
+		SetPedComponentVariation(playerPed, 10, LoadClothes.clothesSkin['decals_1'], LoadClothes.clothesSkin['decals_2'], 2)  -- decals
+		SetPedComponentVariation(playerPed, 4, LoadClothes.clothesSkin['pants_1'], LoadClothes.clothesSkin['pants_2'], 2)     -- pants
+		SetPedComponentVariation(playerPed, 6, LoadClothes.clothesSkin['shoes'], 0, 2) 									      -- shoes
+		SetPedPropIndex(playerPed, 0, LoadClothes.clothesSkin['helmet_1'], LoadClothes.clothesSkin['helmet_2'], 2)            -- Helmet
+		SetPedPropIndex(playerPed, 1, LoadClothes.clothesSkin['glasses_1'], LoadClothes.clothesSkin['glasses_2'], 2)          -- Glasses
 
 		LoadClothes = nil
 
@@ -129,11 +129,11 @@ AddEventHandler('skinchanger:loadSkin', function(skin)
 end)
 
 RegisterNetEvent('skinchanger:loadClothes')
-AddEventHandler('skinchanger:loadClothes', function(playerSkin, jobSkin)
+AddEventHandler('skinchanger:loadClothes', function(playerSkin, clothesSkin)
 	
 	LoadClothes = {
-		playerSkin = playerSkin,
-		jobSkin    = jobSkin
+		playerSkin  = playerSkin,
+		clothesSkin = clothesSkin
 	}
 
 	if playerSkin['sex'] == 0 then
