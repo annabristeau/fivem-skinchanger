@@ -277,21 +277,21 @@ AddEventHandler('skinchanger:modelLoaded', function()
 
 		local playerPed = GetPlayerPed(-1)
 
-		SetPedHeadBlendData(playerPed, LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], 1.0, 1.0, 1.0, true)
+		SetPedHeadBlendData(playerPed, Character['face'], Character['face'], LoadClothes.playerSkin['face'], Character['skin'], Character['skin'], Character['skin'], 1.0, 1.0, 1.0, true)
 		
-		SetPedHeadOverlay(playerPed,  1,  LoadClothes.playerSkin['beard_1'],  (LoadClothes.playerSkin['beard_2'] / 10) + 0.0) -- Beard
-		SetPedHeadOverlayColor(playerPed,  1,  1,  LoadClothes.playerSkin['beard_3'],  LoadClothes.playerSkin['beard_4'])     -- Beard Color
+		SetPedHeadOverlay(playerPed,  1,  Character['beard_1'],  (Character['beard_2'] / 10) + 0.0) -- Beard
+		SetPedHeadOverlayColor(playerPed,  1,  1,  Character['beard_3'],  Character['beard_4'])     -- Beard Color
 
-		SetPedComponentVariation(playerPed, 2, LoadClothes.playerSkin['hair_1'], LoadClothes.playerSkin['hair_2'], 2)	      	-- Hair
-		SetPedHairColor(playerPed, LoadClothes.playerSkin['hair_color_1'], LoadClothes.playerSkin['hair_color_2']) 		      	-- Hair Color
-		SetPedComponentVariation(playerPed, 8,  LoadClothes.clothesSkin['tshirt_1'], LoadClothes.clothesSkin['tshirt_2'], 2)  -- Tshirt
-		SetPedComponentVariation(playerPed, 11, LoadClothes.clothesSkin['torso_1'], LoadClothes.clothesSkin['torso_2'], 2)    -- torso parts
-		SetPedComponentVariation(playerPed, 3, LoadClothes.clothesSkin['arms'], 0, 2)                          -- torso
-		SetPedComponentVariation(playerPed, 10, LoadClothes.clothesSkin['decals_1'], LoadClothes.clothesSkin['decals_2'], 2)  -- decals
-		SetPedComponentVariation(playerPed, 4, LoadClothes.clothesSkin['pants_1'], LoadClothes.clothesSkin['pants_2'], 2)     -- pants
-		SetPedComponentVariation(playerPed, 6, LoadClothes.clothesSkin['shoes'], 0, 2) 									      -- shoes
-		SetPedPropIndex(playerPed, 0, LoadClothes.clothesSkin['helmet_1'], LoadClothes.clothesSkin['helmet_2'], 2)            -- Helmet
-		SetPedPropIndex(playerPed, 1, LoadClothes.clothesSkin['glasses_1'], LoadClothes.clothesSkin['glasses_2'], 2)          -- Glasses
+		SetPedComponentVariation(playerPed, 2, Character['hair_1'], Character['hair_2'], 2)	      	-- Hair
+		SetPedHairColor(playerPed, Character['hair_color_1'], Character['hair_color_2']) 		      	-- Hair Color
+		SetPedComponentVariation(playerPed, 8,  Character['tshirt_1'],Character['tshirt_2'], 2)  -- Tshirt
+		SetPedComponentVariation(playerPed, 11, Character['torso_1'], Character['torso_2'], 2)    -- torso parts
+		SetPedComponentVariation(playerPed, 3, Character['arms'], 0, 2)                          -- torso
+		SetPedComponentVariation(playerPed, 10, Character['decals_1'], Character['decals_2'], 2)  -- decals
+		SetPedComponentVariation(playerPed, 4, Character['pants_1'], Character['pants_2'], 2)     -- pants
+		SetPedComponentVariation(playerPed, 6, Character['shoes'], 0, 2) 									      -- shoes
+		SetPedPropIndex(playerPed, 0, Character['helmet_1'], Character['helmet_2'], 2)            -- Helmet
+		SetPedPropIndex(playerPed, 1, Character['glasses_1'], Character['glasses_2'], 2)          -- Glasses
 
 		LoadClothes = nil
 
