@@ -50,61 +50,124 @@ AddEventHandler('skinchanger:modelLoaded', function()
 
 	if LoadSkin ~= nil then
 
-		Character = LoadSkin
-
-		local playerPed = GetPlayerPed(-1)
-
-		if LoadSkin['face'] ~= nil and LoadSkin['skin'] ~= nil then
-			SetPedHeadBlendData(playerPed, LoadSkin['face'], LoadSkin['face'], LoadSkin['face'], LoadSkin['skin'], LoadSkin['skin'], LoadSkin['skin'], 1.0, 1.0, 1.0, true)
+		if LoadSkin['sex'] ~= nil then
+			Character['sex'] = LoadSkin['sex']
 		end
 
-		if LoadSkin['beard_1'] ~= nil and LoadSkin['beard_2'] ~= nil then
-			SetPedHeadOverlay(playerPed,  1,  LoadSkin['beard_1'],  (LoadSkin['beard_2'] / 10) + 0.0)    -- Beard
+		if LoadSkin['face'] ~= nil then
+			Character['face'] = LoadSkin['face']
 		end
 
-		if LoadSkin['beard_3'] ~= nil and LoadSkin['beard_4'] ~= nil then
-			SetPedHeadOverlayColor(playerPed,  1,  1,  LoadSkin['beard_3'],  LoadSkin['beard_4'])        -- Beard Color
+		if LoadSkin['skin'] ~= nil then
+			Character['skin'] = LoadSkin['skin']
 		end
 
-		if LoadSkin['hair_1'] ~= nil and LoadSkin['hair_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 2, LoadSkin['hair_1'], LoadSkin['hair_2'], 2)	           -- Hair
+		if LoadSkin['beard_1'] ~= nil then
+			Character['beard_1'] = LoadSkin['beard_1']
 		end
 
-		if LoadSkin['hair_color_1'] ~= nil and LoadSkin['hair_color_2'] ~= nil then
-			SetPedHairColor(playerPed, LoadSkin['hair_color_1'], LoadSkin['hair_color_2']) 		           -- Hair Color
+		if LoadSkin['beard_2'] ~= nil then
+			Character['beard_2'] = LoadSkin['beard_2']
 		end
 
-		if LoadSkin['tshirt_1'] ~= nil and LoadSkin['tshirt_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 8,  LoadSkin['tshirt_1'], LoadSkin['tshirt_2'], 2)       -- Tshirt
+		if LoadSkin['beard_3'] ~= nil then
+			Character['beard_3'] = LoadSkin['beard_3']
 		end
 
-		if LoadSkin['torso_1'] ~= nil and LoadSkin['torso_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 11, LoadSkin['torso_1'], LoadSkin['torso_2'], 2)         -- torso parts
+		if LoadSkin['beard_4'] ~= nil then
+			Character['beard_4'] = LoadSkin['beard_4']
 		end
 
-		if LoadSkin['arms'] then
-			SetPedComponentVariation(playerPed, 3, LoadSkin['arms'], 0, 2)                               -- torso
+		if LoadSkin['hair_1'] ~= nil then
+			Character['hair_1'] = LoadSkin['hair_1']
 		end
 
-		if LoadSkin['decals_1'] ~= nil and LoadSkin['decals_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 10, LoadSkin['decals_1'], LoadSkin['decals_2'], 2)       -- decals
+		if LoadSkin['hair_2'] ~= nil then
+			Character['hair_2'] = LoadSkin['hair_2']
 		end
 
-		if LoadSkin['pants_1'] ~= nil and LoadSkin['pants_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 4, LoadSkin['pants_1'], LoadSkin['pants_2'], 2)          -- pants
+		if LoadSkin['hair_color_1'] ~= nil then
+			Character['hair_color_1'] = LoadSkin['hair_color_1']
+		end
+
+		if LoadSkin['hair_color_2'] ~= nil then
+			Character['hair_color_2'] = LoadSkin['hair_color_2']
+		end
+
+		if LoadSkin['tshirt_1'] ~= nil then
+			Character['tshirt_1'] = LoadSkin['tshirt_1']
+		end
+
+		if LoadSkin['tshirt_2'] ~= nil then
+			Character['tshirt_2'] = LoadSkin['tshirt_2']
+		end
+
+		if LoadSkin['torso_1'] ~= nil then
+			Character['torso_1'] = LoadSkin['torso_1']
+		end
+
+		if LoadSkin['torso_2'] ~= nil then
+			Character['torso_2'] = LoadSkin['torso_2']
+		end
+
+		if LoadSkin['decals_1'] ~= nil then
+			Character['decals_1'] = LoadSkin['decals_1']
+		end
+
+		if LoadSkin['decals_2'] ~= nil then
+			Character['decals_2'] = LoadSkin['decals_2']
+		end
+
+		if LoadSkin['arms'] ~= nil then
+			Character['arms'] = LoadSkin['arms']
+		end
+
+		if LoadSkin['pants_1'] ~= nil then
+			Character['pants_1'] = LoadSkin['pants_1']
+		end
+
+		if LoadSkin['pants_2'] ~= nil then
+			Character['pants_2'] = LoadSkin['pants_2']
 		end
 
 		if LoadSkin['shoes'] ~= nil then
-			SetPedComponentVariation(playerPed, 6, LoadSkin['shoes'], 0, 2) 									           -- shoes
+			Character['shoes'] = LoadSkin['shoes']
 		end
 
-		if LoadSkin['helmet_1'] ~= nil and LoadSkin['helmet_2'] ~= nil then
-			SetPedPropIndex(playerPed, 0, LoadSkin['helmet_1'], LoadSkin['helmet_2'], 2)                 -- Helmet
+		if LoadSkin['helmet_1'] ~= nil then
+			Character['helmet_1'] = LoadSkin['helmet_1']
 		end
 
-		if LoadSkin['glasses_1'] ~= nil and LoadSkin['glasses_2'] ~= nil then
-			SetPedPropIndex(playerPed, 1, LoadSkin['glasses_1'], LoadSkin['glasses_2'], 2)               -- Glasses
+		if LoadSkin['helmet_2'] ~= nil then
+			Character['helmet_2'] = LoadSkin['helmet_2']
 		end
+
+		if LoadSkin['glasses_1'] ~= nil then
+			Character['glasses_1'] = LoadSkin['glasses_1']
+		end
+
+		if LoadSkin['glasses_2'] ~= nil then
+			Character['glasses_2'] = LoadSkin['glasses_2']
+		end
+
+
+		local playerPed = GetPlayerPed(-1)
+		
+		SetPedHeadBlendData(playerPed, LoadSkin['face'], LoadSkin['face'], LoadSkin['face'], LoadSkin['skin'], LoadSkin['skin'], LoadSkin['skin'], 1.0, 1.0, 1.0, true)
+		
+		SetPedHeadOverlay(playerPed,  1,  LoadSkin['beard_1'],  (LoadSkin['beard_2'] / 10) + 0.0)    -- Beard
+		SetPedHeadOverlayColor(playerPed,  1,  1,  LoadSkin['beard_3'],  LoadSkin['beard_4'])        -- Beard Color
+		
+		SetPedComponentVariation(playerPed, 2, LoadSkin['hair_1'], LoadSkin['hair_2'], 2)	           -- Hair
+		SetPedHairColor(playerPed, LoadSkin['hair_color_1'], LoadSkin['hair_color_2']) 		           -- Hair Color
+		SetPedComponentVariation(playerPed, 8,  LoadSkin['tshirt_1'], LoadSkin['tshirt_2'], 2)       -- Tshirt
+		SetPedComponentVariation(playerPed, 11, LoadSkin['torso_1'], LoadSkin['torso_2'], 2)         -- torso parts
+		SetPedComponentVariation(playerPed, 3, LoadSkin['arms'], 0, 2)                               -- torso
+		SetPedComponentVariation(playerPed, 10, LoadSkin['decals_1'], LoadSkin['decals_2'], 2)       -- decals
+		SetPedComponentVariation(playerPed, 4, LoadSkin['pants_1'], LoadSkin['pants_2'], 2)          -- pants
+		SetPedComponentVariation(playerPed, 6, LoadSkin['shoes'], 0, 2) 									           -- shoes
+		SetPedPropIndex(playerPed, 0, LoadSkin['helmet_1'], LoadSkin['helmet_2'], 2)                 -- Helmet
+		SetPedPropIndex(playerPed, 1, LoadSkin['glasses_1'], LoadSkin['glasses_2'], 2)               -- Glasses
 
 		LoadSkin = nil
 
@@ -112,84 +175,123 @@ AddEventHandler('skinchanger:modelLoaded', function()
 
 	if LoadClothes ~= nil then
 
-		Character = {
-			sex          = LoadClothes.playerSkin['sex'],
-			face         = LoadClothes.playerSkin['face'],
-			skin         = LoadClothes.playerSkin['skin'],
-			beard_1      = LoadClothes.playerSkin['beard_1'],
-			beard_2      = LoadClothes.playerSkin['beard_2'],
-			hair_1       = LoadClothes.playerSkin['hair_1'],
-			hair_2       = LoadClothes.playerSkin['hair_2'],
-			hair_color_1 = LoadClothes.playerSkin['hair_color_1'],
-			hair_color_2 = LoadClothes.playerSkin['hair_color_2'],
-			tshirt_1     = LoadClothes.clothesSkin['tshirt_1'],
-			tshirt_2     = LoadClothes.clothesSkin['tshirt_2'],
-			torso_1      = LoadClothes.clothesSkin['torso_1'],
-			torso_2      = LoadClothes.clothesSkin['torso_2'],
-			decals_1     = LoadClothes.clothesSkin['arms'],
-			decals_2     = LoadClothes.clothesSkin['decals_1'],
-			arms         = LoadClothes.clothesSkin['decals_2'],
-			pants_1      = LoadClothes.clothesSkin['pants_1'],
-			pants_2      = LoadClothes.clothesSkin['pants_2'],
-			shoes        = LoadClothes.clothesSkin['shoes'],
-			helmet_1     = LoadClothes.clothesSkin['helmet_1'],
-			helmet_2     = LoadClothes.clothesSkin['helmet_2'],
-			glasses_1    = LoadClothes.clothesSkin['glasses_1'],
-			glasses_2    = LoadClothes.clothesSkin['glasses_2']
-		}
-
-		local playerPed = GetPlayerPed(-1)
-
-		if LoadClothes.playerSkin['face'] ~= nil and LoadClothes.playerSkin['skin'] ~= nil then
-			SetPedHeadBlendData(playerPed, LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], 1.0, 1.0, 1.0, true)
+		if LoadClothes.playerSkin['sex'] ~= nil then
+			Character['sex'] = LoadClothes.playerSkin['sex']
 		end
 
-		if LoadClothes.playerSkin['beard_1'] ~= nil and LoadClothes.playerSkin['beard_2'] ~= nil then
-			SetPedHeadOverlay(playerPed,  1,  LoadClothes.playerSkin['beard_1'],  (LoadClothes.playerSkin['beard_2'] / 10) + 0.0) -- Beard
+		if LoadClothes.playerSkin['face'] ~= nil then
+			Character['face'] = LoadClothes.playerSkin['face']
 		end
 
-		if LoadClothes.playerSkin['beard_3'] ~= nil and LoadClothes.playerSkin['beard_4'] ~= nil then
-			SetPedHeadOverlayColor(playerPed,  1,  1,  LoadClothes.playerSkin['beard_3'],  LoadClothes.playerSkin['beard_4'])     -- Beard Color
+		if LoadClothes.playerSkin['skin'] ~= nil then
+			Character['skin'] = LoadClothes.playerSkin['skin']
 		end
 
-		if LoadClothes.playerSkin['hair_1'] ~= nil and LoadClothes.playerSkin['hair_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 2, LoadClothes.playerSkin['hair_1'], LoadClothes.playerSkin['hair_2'], 2)	      	-- Hair
+		if LoadClothes.playerSkin['beard_1'] ~= nil then
+			Character['beard_1'] = LoadClothes.playerSkin['beard_1']
 		end
 
-		if LoadClothes.playerSkin['hair_color_1'] ~= nil and LoadClothes.playerSkin['hair_color_2'] ~= nil then
-			SetPedHairColor(playerPed, LoadClothes.playerSkin['hair_color_1'], LoadClothes.playerSkin['hair_color_2']) 		      	-- Hair Color
+		if LoadClothes.playerSkin['beard_2'] ~= nil then
+			Character['beard_2'] = LoadClothes.playerSkin['beard_2']
 		end
-		
-		if LoadClothes.clothesSkin['tshirt_1'] ~= nil and LoadClothes.clothesSkin['tshirt_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 8,  LoadClothes.clothesSkin['tshirt_1'], LoadClothes.clothesSkin['tshirt_2'], 2)  -- Tshirt
+
+		if LoadClothes.playerSkin['beard_3'] ~= nil then
+			Character['beard_3'] = LoadClothes.playerSkin['beard_3']
 		end
-		if LoadClothes.clothesSkin['torso_1'] ~= nil and LoadClothes.clothesSkin['torso_2'] ~= nil then		
-			SetPedComponentVariation(playerPed, 11, LoadClothes.clothesSkin['torso_1'], LoadClothes.clothesSkin['torso_2'], 2)    -- torso parts
+
+		if LoadClothes.playerSkin['beard_4'] ~= nil then
+			Character['beard_4'] = LoadClothes.playerSkin['beard_4']
+		end
+
+		if LoadClothes.playerSkin['hair_1'] ~= nil then
+			Character['hair_1'] = LoadClothes.playerSkin['hair_1']
+		end
+
+		if LoadClothes.playerSkin['hair_2'] ~= nil then
+			Character['hair_2'] = LoadClothes.playerSkin['hair_2']
+		end
+
+		if LoadClothes.playerSkin['hair_color_1'] ~= nil then
+			Character['hair_color_1'] = LoadClothes.playerSkin['hair_color_1']
+		end
+
+		if LoadClothes.playerSkin['hair_color_2'] ~= nil then
+			Character['hair_color_2'] = LoadClothes.playerSkin['hair_color_2']
+		end
+
+		if LoadClothes.clothesSkin['tshirt_1'] ~= nil then
+			Character['tshirt_1'] = LoadClothes.clothesSkin['tshirt_1']
+		end
+
+		if LoadClothes.clothesSkin['tshirt_2'] ~= nil then
+			Character['tshirt_2'] = LoadClothes.clothesSkin['tshirt_2']
+		end
+
+		if LoadClothes.clothesSkin['torso_1'] ~= nil then
+			Character['torso_1'] = LoadClothes.clothesSkin['torso_1']
+		end
+
+		if LoadClothes.clothesSkin['torso_2'] ~= nil then
+			Character['torso_2'] = LoadClothes.clothesSkin['torso_2']
+		end
+
+		if LoadClothes.clothesSkin['decals_1'] ~= nil then
+			Character['decals_1'] = LoadClothes.clothesSkin['decals_1']
+		end
+
+		if LoadClothes.clothesSkin['decals_2'] ~= nil then
+			Character['decals_2'] = LoadClothes.clothesSkin['decals_2']
 		end
 
 		if LoadClothes.clothesSkin['arms'] ~= nil then
-			SetPedComponentVariation(playerPed, 3, LoadClothes.clothesSkin['arms'], 0, 2)                          -- torso
+			Character['arms'] = LoadClothes.clothesSkin['arms']
 		end
 
-		if LoadClothes.clothesSkin['decals_1'] ~= nil and LoadClothes.clothesSkin['decals_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 10, LoadClothes.clothesSkin['decals_1'], LoadClothes.clothesSkin['decals_2'], 2)  -- decals
+		if LoadClothes.clothesSkin['pants_1'] ~= nil then
+			Character['pants_1'] = LoadClothes.clothesSkin['pants_1']
 		end
 
-		if LoadClothes.clothesSkin['pants_1'] ~= nil and LoadClothes.clothesSkin['pants_2'] ~= nil then
-			SetPedComponentVariation(playerPed, 4, LoadClothes.clothesSkin['pants_1'], LoadClothes.clothesSkin['pants_2'], 2)     -- pants
+		if LoadClothes.clothesSkin['pants_2'] ~= nil then
+			Character['pants_2'] = LoadClothes.clothesSkin['pants_2']
 		end
 
 		if LoadClothes.clothesSkin['shoes'] ~= nil then
-			SetPedComponentVariation(playerPed, 6, LoadClothes.clothesSkin['shoes'], 0, 2) 									      -- shoes
+			Character['shoes'] = LoadClothes.clothesSkin['shoes']
 		end
 
-		if LoadClothes.clothesSkin['helmet_1'] ~= nil and LoadClothes.clothesSkin['helmet_2'] ~= nil then
-			SetPedPropIndex(playerPed, 0, LoadClothes.clothesSkin['helmet_1'], LoadClothes.clothesSkin['helmet_2'], 2)            -- Helmet
+		if LoadClothes.clothesSkin['helmet_1'] ~= nil then
+			Character['helmet_1'] = LoadClothes.clothesSkin['helmet_1']
 		end
 
-		if LoadClothes.clothesSkin['glasses_1'] ~= nil and LoadClothes.clothesSkin['glasses_2'] ~= nil then
-			SetPedPropIndex(playerPed, 1, LoadClothes.clothesSkin['glasses_1'], LoadClothes.clothesSkin['glasses_2'], 2)          -- Glasses
+		if LoadClothes.clothesSkin['helmet_2'] ~= nil then
+			Character['helmet_2'] = LoadClothes.clothesSkin['helmet_2']
 		end
+
+		if LoadClothes.clothesSkin['glasses_1'] ~= nil then
+			Character['glasses_1'] = LoadClothes.clothesSkin['glasses_1']
+		end
+
+		if LoadClothes.clothesSkin['glasses_2'] ~= nil then
+			Character['glasses_2'] = LoadClothes.clothesSkin['glasses_2']
+		end
+
+		local playerPed = GetPlayerPed(-1)
+
+		SetPedHeadBlendData(playerPed, LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['face'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], LoadClothes.playerSkin['skin'], 1.0, 1.0, 1.0, true)
+		
+		SetPedHeadOverlay(playerPed,  1,  LoadClothes.playerSkin['beard_1'],  (LoadClothes.playerSkin['beard_2'] / 10) + 0.0) -- Beard
+		SetPedHeadOverlayColor(playerPed,  1,  1,  LoadClothes.playerSkin['beard_3'],  LoadClothes.playerSkin['beard_4'])     -- Beard Color
+
+		SetPedComponentVariation(playerPed, 2, LoadClothes.playerSkin['hair_1'], LoadClothes.playerSkin['hair_2'], 2)	      	-- Hair
+		SetPedHairColor(playerPed, LoadClothes.playerSkin['hair_color_1'], LoadClothes.playerSkin['hair_color_2']) 		      	-- Hair Color
+		SetPedComponentVariation(playerPed, 8,  LoadClothes.clothesSkin['tshirt_1'], LoadClothes.clothesSkin['tshirt_2'], 2)  -- Tshirt
+		SetPedComponentVariation(playerPed, 11, LoadClothes.clothesSkin['torso_1'], LoadClothes.clothesSkin['torso_2'], 2)    -- torso parts
+		SetPedComponentVariation(playerPed, 3, LoadClothes.clothesSkin['arms'], 0, 2)                          -- torso
+		SetPedComponentVariation(playerPed, 10, LoadClothes.clothesSkin['decals_1'], LoadClothes.clothesSkin['decals_2'], 2)  -- decals
+		SetPedComponentVariation(playerPed, 4, LoadClothes.clothesSkin['pants_1'], LoadClothes.clothesSkin['pants_2'], 2)     -- pants
+		SetPedComponentVariation(playerPed, 6, LoadClothes.clothesSkin['shoes'], 0, 2) 									      -- shoes
+		SetPedPropIndex(playerPed, 0, LoadClothes.clothesSkin['helmet_1'], LoadClothes.clothesSkin['helmet_2'], 2)            -- Helmet
+		SetPedPropIndex(playerPed, 1, LoadClothes.clothesSkin['glasses_1'], LoadClothes.clothesSkin['glasses_2'], 2)          -- Glasses
 
 		LoadClothes = nil
 
